@@ -1,10 +1,7 @@
 
 function reactive(obj) {
   // 判断类型
-  if (typeof obj === 'object') {
-    if (obj === null) {
-      console.warn('Param not a object')
-    }
+  if (obj && typeof obj === 'object') {
     if (obj instanceof Array) {
       console.log('array obj')
       obj.forEach((item, index) => {
@@ -21,6 +18,7 @@ function reactive(obj) {
     }
   } else {
     console.warn('Param not a object')
+    return obj
   }
   return new Proxy(obj, {
     get(target, key) {
@@ -35,3 +33,13 @@ function reactive(obj) {
 }
 
 export default reactive
+// !(function (root, factory) {
+//   if (typeof module === 'object' && module.exports) {
+//     module.exports = factory(root)
+//     module.exports.default = module.exports
+//   } else {
+//     root.reactive = factory(root)
+//   }
+// })(typeof window !== 'undefined' ? window : this, function() {
+//   return reactive
+// })

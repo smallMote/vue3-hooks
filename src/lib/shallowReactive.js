@@ -10,6 +10,7 @@ const shallowReactive = (obj) => {
       console.log('修改数据', 'key = ', key, '原来的值 = ', obj[key], '新值 = ', value)
       obj[key] = value
       console.log('修改后渲染数据到页面')
+      return true
     }
   })
 }
@@ -19,4 +20,5 @@ const shallowReactive = (obj) => {
 // state.count = 1
 // console.log(state.count) // 1
 
-module.exports = shallowReactive
+// module.exports = shallowReactive
+export default shallowReactive
