@@ -1,6 +1,7 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <TestRef />
+  <Readonly/>
+  <ToRaw/>
   <Reactive />
   <Ref />
   <ShallowReactive />
@@ -11,8 +12,9 @@ import HelloWorld from './components/HelloWorld.vue'
 import Ref from './components/hooks/Ref.vue'
 import Reactive from './components/hooks/Reactive.vue'
 import ShallowReactive from './components/hooks/ShallowReactive.vue'
-import TestRef from './components/test/TestRef.vue'
 import shallowRef from './lib/shallowRef'
+import ToRaw from './components/hooks/ToRaw.vue'
+import Readonly from './components/hooks/Readonly.vue'
 
 // import { reactive } from 'vue'
 export default {
@@ -20,8 +22,9 @@ export default {
   components: {
     Ref,
     Reactive,
-    TestRef,
-    ShallowReactive
+    ShallowReactive,
+    ToRaw,
+    Readonly
   },
   setup() {
     const state = shallowRef({
